@@ -84,7 +84,7 @@ def oscar_films(oscars):
 
 @st.cache_data
 def load_tmdb():
-    tmdb = pd.read_csv(DATA_DIRECTORY / "tmdb_top10_per_year.csv")
+    tmdb = pd.read_csv(DATA_DIRECTORY / "processed" / "tmdb_top10_per_year.csv")
     tmdb["year"] = pd.to_datetime(tmdb["release_date"], errors="coerce").dt.year
     tmdb["decade"] = tmdb["year"] // 10 * 10
     # TMDB records an unknown budget or revenue as 0
